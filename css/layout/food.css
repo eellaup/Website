@@ -75,6 +75,7 @@
 
  #food .card img {
    width: 40%;
+   height: 40%;
    border-top-left-radius: 10%;
    border-bottom-left-radius: 10%;
  }
@@ -89,6 +90,7 @@
    width: 100%;
  }
 
+/* Title of the Food Card */
 #food .card .restaurant-title{
    font-family: 'Lobster Two', cursive !important;
    font-size: 70px !important;
@@ -96,15 +98,47 @@
    margin-bottom: 30px !important;
    color: black !important;
 }
+/* Title font get smaller on smaller screens */
+@media screen and (max-width:1000px) {
+   #food .card .restaurant-title{
+      font-size:50px !important;
+      margin-bottom: 25px !important;
+   }
+}
+/* Title font get smaller on smaller screens */
+@media screen and (max-width:700px) {
+   #food .card .restaurant-title{
+      font-size:35px !important;
+      margin-bottom: 12px !important;
+   }
+}
 
+/* Keep title of Food Card black even when there's a hyperlink */
 #food .card .restaurant-title a {
    color: black !important;
 }
 
+/* Card Tags */
 #food .card .card-tags {
    font-size: 25px !important;
    font-family: 'Merriweather', serif !important;
    text-align: justify !important;
+}
+/* Card tag font get smaller on smaller screens */
+@media screen and (max-width:1000px) {
+   #food .card .card-tags{
+      font-size:20px !important;
+      line-height: 0px !important;
+      margin-bottom: 20px !important;
+   }
+}
+/* Card tag font get smaller on smaller screens */
+@media screen and (max-width:700px) {
+   #food .card .card-tags{
+      font-size:13px !important;
+      line-height: 0px !important;
+      margin-bottom: 10px !important;
+   }
 }
 
 #food .card .card-back p {
@@ -112,33 +146,76 @@
    word-break: break-word;
 }
 
-/* Spreads the Tags across the line */
+/* New span spreads the Tags across the line */
 #food .card .card-tags span {
   width:100%;
-  height:0em;
   display:inline-block;
+  line-height: 0px !important;
 }
 
+/* "My Personal Favorite" title */
 #food .card .goto_menu {
    font-size: 30px !important;
    font-family: 'DM Mono', monospace !important;
    margin-bottom: 15px !important;
    text-align: left !important;
 }
+/* "My Personal Favorite" title on a smaller screen */
+@media screen and (max-width:1000px) {
+   #food .card .goto_menu{
+      font-size:23px !important;
+      margin-bottom: 8px !important;
+   }
+}
+/* "My Personal Favorite" title on a smaller screen */
+@media screen and (max-width:700px) {
+   #food .card .goto_menu{
+      font-size:15px !important;
+      margin-bottom: 0px !important;
+   }
+}
 
+/* Go-to Menu items */
 #food .card .menu-items {
    text-align: left !important;
    font-family: 'DM Mono', monospace !important;
-   font-size: 28px !important;
+   font-size: 25px !important;
    color: black !important;
 }
+/* Go-to menu items on a smaller screen */
+@media screen and (max-width:1000px) {
+   #food .card .menu-items{
+      font-size:20px !important;
+   }
+}
+/* Go-to menu items on a smaller screen */
+@media screen and (max-width:700px) {
+   #food .card .menu-items{
+      font-size:14px !important;
+   }
+}
 
+/* Go-to menu items list spacing */
 #food .card .menu-items li {
    line-height: 30px;
+   margin: 0px !important;
+}
+/* Go-to menu items list spacing on a smaller screen */
+@media screen and (max-width:1000px) {
+   #food .card .menu-items li{
+      line-height: 25px !important;
+      margin: 0px !important;
+   }
+}
+/* Go-to menu items list spacing on a smaller screen */
+@media screen and (max-width:700px) {
+   #food .card .menu-items li{
+      line-height: 15px !important;
+      margin: 0px !important;
+   }
 }
 
 /* Flipping CARD */
-
 #food label:hover .card {
    -webkit-transform: rotateX(10deg);
    transform: rotateX(10deg);
@@ -205,3 +282,63 @@
    /* border: 1px solid #ddd; */
    /* border-radius: .25em; */
  }
+/* ------------------------------------------------------------------ */
+/* NEW FOOD CARD STYLING */
+/* ------------------------------------------------------------------ */
+
+#food .food-card {
+   display: flex;
+   flex-direction: column;
+   margin: 1rem auto;
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+   border-radius: 10% 5% 5% 10% !important;
+   margin-bottom: 40px;
+   background-color: lightyellow;
+   line-height: 1.4;
+   font-family: sans-serif;
+   border-radius: 5px;
+   overflow: hidden;
+   z-index: 0;
+   width: 100%;
+   padding-bottom: 30%;
+   position: relative;
+   transition: transform 1s;
+}
+
+#food .food-card .card-front {
+   /* Keeps it on the same row */
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   -webkit-backface-visibility: hidden;
+   backface-visibility: hidden;
+}
+
+#food .food-card img {
+   position: absolute;
+   height: 100%; 
+   border-top-left-radius: 10%;
+   border-bottom-left-radius: 10%;
+}
+
+ /* Add some padding inside the card container */
+ #food .food-card .front-container {
+   padding: 2%;
+   width:60%;
+   position: relative;
+ }
+
+#food .food-card .restaurant-title {
+   font-family: 'Lobster Two', cursive !important;
+   font-size: 70px !important;
+   text-align: center !important;
+   margin-bottom: 30px !important;
+   color: black !important;
+}
+
+/* Flipping CARD */
+#food label:hover .food-card {
+   -webkit-transform: rotateX(10deg);
+   transform: rotateX(10deg);
+   box-shadow: 0 20px 20px rgba(50,50,50,.2);
+}
